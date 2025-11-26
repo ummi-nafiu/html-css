@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login form</title>
+    <style>
+        .login-form{
+            color: black;
+            font-size: 50px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+        }
+        .form-group {
+            justify-content: center;
+            height: 10vh;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+        }
+        .sign-in button{
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            padding: 5px 10px;
+            background-color: red;
+            font-size: 24px;
+            border-radius: 15px;
+            border: none;
+        }
+        .text-input{
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 class="login-form">login form</h2>
+        <form action="">
+            <div class="form-group"> 
+                <label class="label"for="">username or email</label>
+                <input class="text-input" type="text"placeholder="email or username">
+            </div>
+            <div class="form-group">
+                <label class="label"for="">password</label>
+                <input class="text-input" type="text"placeholder=password>
+            </div>
+            <div class=" form-group">
+                <h4>forget password</h4>
+                <button class="sign-in botton">sign-in </button>
+            </div>
+    </div>
+    
+</body>
+</html>

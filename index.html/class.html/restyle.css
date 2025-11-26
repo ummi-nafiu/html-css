@@ -1,0 +1,21 @@
+nav{
+    background-color: black;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+
+
+}
+.form-group{
+    flex-direction: row;
+    display: flex;
+    gap: 20px;
+    font-size: 25px;
+}
+
+.form{
+    font: size 25px;;
+}
+
+    

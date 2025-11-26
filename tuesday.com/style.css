@@ -1,0 +1,25 @@
+
+.ummi {
+    display: inline-block;
+    background-color: aquamarine;
+    
+}
+.ummi1 {
+    display: inline-block;
+    margin-right: 260px;
+    margin-left: 30px;
+}
+.ummi2 {
+    display: inline-block;
+    margin-right: 100px;
+}
+.gallery-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 150px;
+    margin-top: 50px;
+    align-items: center;
+  
+    
+}

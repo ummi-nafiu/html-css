@@ -1,0 +1,245 @@
+
+ <!Doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AutoModa — Find Your Next Ride</title>
+  <meta name="description" content="AutoModa — Modern car marketplace. Browse featured cars, search inventory, book test drives." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Simple, modern responsive styling (no external CSS frameworks required) */
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#2453c2;
+      --accent:#abe71d;
+      --accent-2:#7c3aed;
+      --glass: rgba(61, 180, 14, 0.04);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#0f48b1 0%, #0c1624 100%);color:#e6eef8}
+    a{color:inherit;text-decoration:none}
+    header{display:flex;align-items:center;justify-content:space-between;padding:20px 32px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));font-weight:800}
+    .brand h1{font-size:18px;margin:0}
+    nav{display:flex;gap:18px;align-items:center}
+    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 14px;border-radius:10px;font-weight:600}
+
+    /* Hero */
+    .hero{padding:40px 32px;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-left h2{font-size:36px;margin:0 0 12px}
+    .hero-left p{color:var(--muted);margin:0 0 18px}
+    .search{display:flex;gap:10px;background:var(--card);padding:12px;border-radius:12px;align-items:center}
+    .search input, .search select{background:transparent;border:0;color:inherit;font-size:15px;padding:8px;outline:none}
+    .search button{background:var(--accent);border:0;padding:10px 12px;border-radius:8px;color:#021428;font-weight:700}
+
+    /* Quick stats */
+    .stats{display:flex;gap:14px;margin-top:18px}
+    .stat{background:var(--glass);padding:12px;border-radius:10px;min-width:120px}
+    .stat h3{margin:0;font-size:18px}
+    .stat p{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+    /* Featured cars */
+    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;padding:24px 32px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    .card-title{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+    .price{background:rgba(0,0,0,0.35);padding:6px 8px;border-radius:8px;font-weight:700}
+    .meta{display:flex;gap:10px;color:var(--muted);font-size:13px;margin-top:8px}
+    .btn{display:inline-block;padding:8px 10px;border-radius:8px;background:var(--accent);color:#021428;font-weight:700}
+
+    /* About / Features */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:24px 32px}
+    .feature{background:var(--card);padding:18px;border-radius:12px}
+
+    /* Contact */
+    .contact{padding:24px 32px;background:linear-gradient(180deg, rgba(124,58,237,0.06), transparent);border-top:1px solid rgba(255,255,255,0.02)}
+    .footer{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;color:var(--muted);font-size:14px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .hero-right{order:2}
+      .cards{padding:18px}
+      .features{grid-template-columns:1fr}
+      header{padding:12px}
+    }
+
+    /* Utility */
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden>AM</div>
+      <div>
+        <h1>AutoModa</h1>
+        <div class="muted" style="font-size:12px">Modern car marketplace</div>
+      </div>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="#inventory">Inventory</a>
+      <a href="#features">Why AutoModa</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#inventory">Browse Cars</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h2>Find the perfect car — new or used.</h2>
+        <p>Search hundreds of listings, compare specs, and book test drives in seconds. Modern UI, honest pricing.</p>
+
+        <div class="search" role="search" aria-label="Search cars">
+          <input id="q" placeholder="Search make, model, or keyword" />
+          <select id="type">
+            <option value="all">All types</option>
+            <option value="sedan">Sedan</option>
+            <option value="suv">SUV</option>
+            <option value="truck">Truck</option>
+            <option value="ev">Electric</option>
+          </select>
+          <button onclick="applyFilter()">Search</button>
+        </div>
+
+        <div class="stats" aria-hidden>
+          <div class="stat"><h3>1,240+</h3><p>Cars listed</p></div>
+          <div class="stat"><h3>98%</h3><p>Customer satisfaction</p></div>
+          <div class="stat"><h3>Free</h3><p>Test drive booking</p></div>
+        </div>
+      </div>
+
+      <aside class="hero-right" aria-hidden>
+        <!-- Highlight / Promo -->
+        <div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;">
+          <h3 style="margin:0 0 8px">Featured: 2024 Volt X</h3>
+          <img src="https://picsum.photos/id/1011/420/230" alt="Featured car" style="width:100%;border-radius:8px;object-fit:cover"/>
+          <p class="muted" style="margin:10px 0 0">Electric range 320 mi • 0–60 km/h in 4.2s</p>
+          <div style="margin-top:12px"><a class="btn" href="#inventory">View Details</a></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="inventory">
+      <h2 style="padding:0 32px">Featured Listings</h2>
+      <div class="cards" id="cards">
+        <!-- Sample cards (images are placeholders from picsum.photos) -->
+        <article class="card" data-make="Tesla" data-type="ev" data-price="63999">
+          <img src="ummicar.png" alt="Car 1" />
+          <div class="card-title"><strong>Tesla Model S</strong><div class="price">$63,999</div></div>
+          <div class="meta"><span>2023</span><span>Electric</span><span>34,000 mi</span></div>
+          <div style="margin-top:10px"><a class="btn" href="#">Book Test Drive</a></div>
+        </article>
+
+        <article class="card" data-make="BMW" data-type="sedan" data-price="42999">
+          <img src="https://picsum.photos/id/1021/600/400" alt="Car 2" />
+          <div class="card-title"><strong>BMW 3 Series</strong><div class="price">$42,999</div></div>
+          <div class="meta"><span>2021</span><span>Petrol</span><span>28,000 mi</span></div>
+          <div style="margin-top:10px"><a class="btn" href="#">Book Test Drive</a></div>
+        </article>
+
+        <article class="card" data-make="Ford" data-type="truck" data-price="35999">
+          <img src="https://picsum.photos/id/1040/600/400" alt="Car 3" />
+          <div class="card-title"><strong>Ford Ranger</strong><div class="price">$35,999</div></div>
+          <div class="meta"><span>2022</span><span>Diesel</span><span>18,000 mi</span></div>
+          <div style="margin-top:10px"><a class="btn" href="#">Book Test Drive</a></div>
+        </article>
+
+        <article class="card" data-make="Audi" data-type="suv" data-price="51999">
+          <img src="https://picsum.photos/id/1037/600/400" alt="Car 4" />
+          <div class="card-title"><strong>Audi Q5</strong><div class="price">$51,999</div></div>
+          <div class="meta"><span>2022</span><span>Petrol</span><span>22,500 mi</span></div>
+          <div style="margin-top:10px"><a class="btn" href="#">Book Test Drive</a></div>
+        </article>
+
+        <!-- additional sample cards can be duplicated client-side -->
+      </div>
+
+      <div style="padding:0 32px 18px;color:var(--muted)">Showing <span id="count">4</span> listings. <a href="#">See all</a></div>
+    </section>
+
+    <section id="features">
+      <h2 style="padding:0 32px">Why AutoModa</h2>
+      <div class="features">
+        <div class="feature">
+          <h4>Verified Listings</h4>
+          <p class="muted">Every car goes through a basic inspection and is reviewed by our team.</p>
+        </div>
+        <div class="feature">
+          <h4>Easy Financing</h4>
+          <p class="muted">Get tailored financing options from partnered lenders in minutes.</p>
+        </div>
+        <div class="feature">
+          <h4>Price Match</h4>
+          <p class="muted">Found better? We'll evaluate and try to match competitive offers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+        <div style="flex:1;min-width:220px">
+          <h3>Get in touch</h3>
+          <p class="muted">Questions about a listing or need help with financing? Send us a message.</p>
+        </div>
+        <form onsubmit="handleContact(event)" style="display:flex;gap:10px;align-items:center;flex:1;min-width:260px">
+          <input id="name" placeholder="Your name" required style="padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.03);color:inherit;flex:2" />
+          <input id="email" type="email" placeholder="Email" required style="padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.03);color:inherit;flex:2" />
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© <span id="yr"></span> AutoModa — All rights reserved</div>
+    <div class="muted">Made with ❤️ · <a href="#features">About</a> · <a href="#contact">Contact</a></div>
+  </footer>
+
+  <script>
+    // Small interactive behaviors: filtering, contact handler
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    function applyFilter(){
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      const type = document.getElementById('type').value;
+      const cards = Array.from(document.querySelectorAll('#cards .card'));
+      let shown = 0;
+      cards.forEach(card => {
+        const make = card.getAttribute('data-make')?.toLowerCase() || '';
+        const t = card.getAttribute('data-type') || '';
+        const price = card.getAttribute('data-price') || '';
+        const matchesQ = q === '' || make.includes(q) || card.textContent.toLowerCase().includes(q);
+        const matchesType = type === 'all' || t === type;
+        if(matchesQ && matchesType){
+          card.style.display = '';
+          shown++;
+        }else{
+          card.style.display = 'none';
+        }
+      });
+      document.getElementById('count').textContent = shown;
+    }
+
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      // Fake submission for demo. In a real app you'd POST to your backend.
+      alert('Thanks, ' + name + '! We\'ll reach out to ' + email + ' shortly.');
+      e.target.reset?.();
+    }
+
+    // accessibility: allow Enter on search input
+    document.getElementById('q').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ applyFilter(); }});
+  </script>
+
+</body>
+</html>

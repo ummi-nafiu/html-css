@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input</title>
+    <style>
+        .form-container{
+            width: 400px;
+            background-color: aliceblue;
+            margin: 40px auto;
+            padding: 50px;
+            border-radius: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            font-size: 30px;
+            margin: 10px 0;
+        }
+
+        .form-input {
+            padding: 10px 5px;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form method="post" action="index.html" >
+    
+            <div class="form-group">
+                <label for="">first name</label>
+                <input type="text" name="firstname" class="form-input" placeholder="enter your first name" required>
+            </div>
+            <div class="form-group">
+                <label for="">middlename</label>
+                <input class="form-input"  type="text" name="middlename" placeholder="enter your middlename">
+            </div>
+    
+            <div class="form-group">
+                <label for="">lastname</label>
+                <input class="form-input" type="text" placeholder="enter your lastname" name="lastname" required>
+            </div>
+            <div class="form-group">
+                <label for="">date of birth</label>
+                <input class="form-input" type="date" name="dob" placeholder="dob">
+            </div>
+            <div class="form-group">
+                <label for="">email</label>
+                <input class="form-input" type="email" name="email" placeholder="email address">
+            </div>
+            <div class="form-group">
+                <label for="">password</label>
+                <input class="form-input" type="password" name="password" placeholder="enter your password">
+            </div>
+            <div class="form-group">
+                <label for="">confirm password</label>
+                <input class="form-input" type="password" name="confirm-password" placeholder="confirm your password"/>
+            </div>
+            <div class="form-group">
+                <label for="">gender</label>
+                <div>
+                    <label for="male">male</label>
+                    <input type="radio" name="gender" value="male" id="male">
+
+                    <label for="female">female</label>
+                    <input type="radio"name="gender" value="female" id="female">
+                </div>
+
+                
+            </div>
+            <div class="form-group">
+                <label for="">passport photograph</label>
+                <input class="form-input" name="passport" type="file">
+            </div>
+            <div class="form-group">
+                <label for="">have you paid</label>
+                <div>
+                    <label for="yes">yes</label>
+                    <input type="radio"name='paid' value="yes" id="yes">
+                    <label for="no">no</label>
+                    <input type="radio" name="paid" value="no" id="no">
+                </div>
+                
+            </div>
+            <div class="form-group">
+                <label for="">subject offered</label>
+                <div>
+                    <input type="checkbox" name="english" id="english">
+                    <label for="english">english</label>
+                    
+                </div>
+                <div>
+                    <input type="checkbox" name="mathematics" id="mathematics">
+                    <label for="mathematics">mathematics</label>
+                    
+                </div>
+                <div>
+                    <input type="checkbox" name="physics" id="physics">
+                    <label for="physics">physics</label>
+                    
+                </div>
+                <div>
+                    <input type="checkbox" name="biology" id="biology">
+                    <label for="biology">biology</label>
+                    
+                </div>
+                <div>
+                    <input type="checkbox" name="chemistry" id="chemistry">
+                    <label for="chemistry">chemistry</label>
+                    
+                </div>
+                <div>
+                    <input type="checkbox" name="commerce" id="commerce">
+                    <label for="commerce">commerce</label>
+                    
+                </div>
+                
+                
+                
+                
+                
+                
+            </div>
+            <div class="submit">
+                <button>submit </button>
+            </div>
+        </form>
+    </div>
+
+
+    
+</body>
+</html>
